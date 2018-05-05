@@ -59,25 +59,19 @@ class node:
 
     # inorder transversal using loop, stack    
     def inorderLoop(self):
+        current=self
         s=[]
-        root=self
         while(1):
-            if(root != None):
-                s.append(root)
-                print(root.data)
-                center=root
-                root=root.left
+            if current is not None:
+                s.append(current)
+                current=current.left
             else:
-                if not s:
-                    break
-                if center != None:
-                    center=s.pop()
-                    print("look",center.data)
-                    root=s.pop()
-                    print("look",root.data)
-                    root=root.right
- 
-
+                if len(s) > 0:
+                    current=s.pop()
+                    print(current.data),
+                    current=current.right
+                else:
+                    break        
 
 # main function                
 root = node()
